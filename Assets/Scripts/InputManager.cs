@@ -2,14 +2,16 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InputManager : MonoBehaviour
-{
+public class InputManager : MonoBehaviour{
     public UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
     public UnityEvent OnSpacePressed = new UnityEvent();
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space)){
+    public UnityEvent OnEPressed = new UnityEvent();
+    void Update(){
+        if(Input.GetKey(KeyCode.Space)){
             OnSpacePressed.Invoke();
+        }
+        if(Input.GetKey(KeyCode.E)){
+            OnEPressed.Invoke();
         }
         Vector2 input = Vector2.zero;
         if (Input.GetKey(KeyCode.W)){
@@ -24,6 +26,8 @@ public class InputManager : MonoBehaviour
         if (Input.GetKey(KeyCode.D)){
             input += Vector2.right;
         }
-        OnMove?.Invoke(input);
+        if(!input.Equals(Vector2.zero)){
+            OnMove?.Invoke(input);
+        }
     }
 }

@@ -154,6 +154,9 @@ MonoBehaviour:
   OnSpacePressed:
     m_PersistentCalls:
       m_Calls: []
+  OnEPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &142645629
 Transform:
   m_ObjectHideFlags: 0
@@ -990,7 +993,7 @@ GameObject:
   - component: {fileID: 868760137}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1236,7 +1239,7 @@ MonoBehaviour:
       Enabled: 1
       Input:
         LegacyInput: Mouse X
-        LegacyGain: 100
+        LegacyGain: 1000
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -1651,6 +1654,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 142645628}
   acceleration: 1000
+  dashForce: 10
+  jumpForce: 5
+  doubleJumpForce: 6.5
+  doubleJumpDelay: 0.15
   freeLookCamera: {fileID: 1063542806}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
