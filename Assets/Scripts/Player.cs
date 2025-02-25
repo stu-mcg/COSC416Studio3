@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     [SerializeField] private  CinemachineCamera freeLookCamera;
     [SerializeField] private float acceleration;
+    [SerializeField] private float airAcceleration;
     [SerializeField] private float dashForce;
     [SerializeField] private float jumpForce;
     [SerializeField] private float doubleJumpForce;
@@ -68,7 +69,7 @@ public class Player : MonoBehaviour
 
         Vector3 moveDirection = cameraForward * direction.y + cameraRight * direction.x;
 
-        rb.AddForce(moveDirection * acceleration * Time.deltaTime);
+        rb.AddForce(moveDirection * (onGround ? acceleration : airAcceleration) * Time.deltaTime);
     }
 
     private void Dash(){
