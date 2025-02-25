@@ -5,12 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private InputManager inputManager;
+    [SerializeField] private  CinemachineCamera freeLookCamera;
     [SerializeField] private float acceleration;
     [SerializeField] private float dashForce;
     [SerializeField] private float jumpForce;
     [SerializeField] private float doubleJumpForce;
     [SerializeField] private float doubleJumpDelay;
-    [SerializeField] private  CinemachineCamera freeLookCamera;
     private bool onGround = true;
     private bool jumpStarted = false;
     private bool jumpInAir = false;
@@ -87,10 +87,6 @@ public class Player : MonoBehaviour
     }
 
     private void Jump(){
-        Debug.Log("jump");
-        Debug.Log(jumpInAir);
-        Debug.Log(doubleJumpAvailable);
-        Debug.Log(jumpStarted);
         if(onGround && !jumpStarted){
             rb.AddForce(new Vector3(0, 1, 0) * jumpForce, ForceMode.Impulse);
             jumpStarted = true;
